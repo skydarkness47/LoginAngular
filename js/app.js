@@ -9,26 +9,31 @@ app.controller('controlAlta', function($scope, $http) {
 
 //inicio las variables
  
+  $scope.enviar = function(){
+          $http.post("datos.html", $scope.persona)
+            .success(function(res){
+              console.log(res);
+              //por supuesto podrás volcar la respuesta al modelo con algo como vm.res = res;
+            });  
+        }
 
-
-  $scope.Logueo=function(){
-
-
-    console.log($scope.persona);
-
+  
     /*
     $http.post('PHP/nexo.php', { datos: {accion :"insertar",persona:$scope.persona}})
- 	  .then(function(respuesta) {     	
- 		     //aca se ejetuca si retorno sin errores      	
-      	 console.log(respuesta.data);
+    .then(function(respuesta) {       
+         //aca se ejetuca si retorno sin errores        
+         console.log(respuesta.data);
 
-    },function errorCallback(response) {     		
-     		//aca se ejecuta cuando hay errores
-     		console.log( response);     			
- 	  });
+    },function errorCallback(response) {        
+        //aca se ejecuta cuando hay errores
+        console.log( response);           
+    });
 
   */
 
-  }
+  
 });
+
+
+    
 
