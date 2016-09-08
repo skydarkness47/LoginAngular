@@ -5,18 +5,30 @@ var app = angular.module('ABMangularPHP', []);
 
 
 app.controller('controlAlta', function($scope, $http) {
-  $scope.DatoTest="**alta**";
+  $scope.persona={};
 
 //inicio las variables
  
   $scope.enviar = function(){
-          $http.post("datos.html", $scope.persona)
-            .success(function(res){
-              console.log(res);
-              //por supuesto podrás volcar la respuesta al modelo con algo como vm.res = res;
-            });  
+         $http({
+    url: 'datos.html', 
+    method: "POST",
+    params: {persona: $scope.persona}
+            });   
         }
 
+     $scope.ver =function()
+    {
+      $scope.datos=$scope.persona;        
+    }
+     
+          
+
+
+
+
+      
+  
   
     /*
     $http.post('PHP/nexo.php', { datos: {accion :"insertar",persona:$scope.persona}})
